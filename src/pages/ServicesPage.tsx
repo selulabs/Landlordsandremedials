@@ -2,8 +2,8 @@ import { ArrowRight, Check, Phone } from 'lucide-react';
 import { EnquiryForm } from '@/components/EnquiryForm';
 import { Link } from '@/components/Link';
 import { PageHero } from '@/components/PageHero';
-import { ServiceCard, ServiceIcon } from '@/components/ServiceCard';
-import { SERVICES, findService } from '@/data/services';
+import { ServiceIcon } from '@/components/ServiceCard';
+import { SERVICE_CATEGORIES, findService } from '@/data/services';
 import { SITE } from '@/lib/site';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 
@@ -20,8 +20,29 @@ export function ServicesPage() {
       />
       <section className="bg-mist py-24">
         <div className="mx-auto grid max-w-7xl gap-6 px-5 sm:grid-cols-2 lg:grid-cols-3 lg:px-8">
-          {SERVICES.map((service) => (
-            <ServiceCard key={service.slug} service={service} />
+          {SERVICE_CATEGORIES.map((category) => (
+            <div key={category.slug} className="flex h-full flex-col rounded-3xl border border-line bg-white p-6 shadow-card">
+              <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-700">
+                <ServiceIcon name={category.icon} className="h-6 w-6" />
+              </span>
+              <p className="mb-2 font-body text-xs font-semibold uppercase tracking-[0.14em] text-brand-700">
+                {category.services.length === 1 ? 'Service' : `${category.services.length} subservices`}
+              </p>
+              <h2 className="text-xl text-ink">{category.name}</h2>
+              <p className="mt-3 font-body text-sm leading-[1.6] text-ink/70">{category.summary}</p>
+              <div className="mt-5 space-y-2">
+                {category.services.map((service) => (
+                  <Link
+                    key={service.slug}
+                    to={`/services/${service.slug}`}
+                    className="flex items-center justify-between gap-3 rounded-xl px-3 py-2 font-body text-sm text-ink transition hover:bg-brand-50 hover:text-brand-700"
+                  >
+                    <span>{service.shortName}</span>
+                    <ArrowRight className="h-4 w-4 shrink-0" />
+                  </Link>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </section>
@@ -75,14 +96,30 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
 
             <div>
               <h2 className="mb-6 text-2xl text-ink">Pricing</h2>
-              <div className="overflow-hidden rounded-3xl border border-line">
-                {service.pricing.map((row, index) => (
-                  <div
-                    key={row.label}
-                    className={`flex items-center justify-between gap-4 px-6 py-4 font-body text-sm ${index > 0 ? 'border-t border-line' : ''}`}
-                  >
-                    <span className="text-ink/75">{row.label}</span>
-                    <span className="font-heading font-bold text-brand-700">{row.price}</span>
+              <div className="space-y-6">
+                {service.pricing.map((section, sectionIndex) => (
+                  <div key={`${section.title ?? 'pricing'}-${sectionIndex}`} className="overflow-hidden rounded-3xl border border-line">
+                    {section.title && (
+                      <div className="bg-mist px-5 py-4 sm:px-6">
+                        <h3 className="font-heading text-base font-bold text-ink">{section.title}</h3>
+                        {section.note && <p className="mt-1 font-body text-xs leading-[1.5] text-ink/60">{section.note}</p>}
+                      </div>
+                    )}
+                    {section.rows.map((row, index) => (
+                      <div
+                        key={row.label}
+                        className={`grid gap-3 px-5 py-4 font-body text-sm sm:grid-cols-[1fr_auto_auto] sm:items-center sm:px-6 ${section.title || index > 0 ? 'border-t border-line' : ''}`}
+                      >
+                        <span className="text-ink/75">{row.label}</span>
+                        <span className="font-heading font-bold text-brand-700">{row.price}</span>
+                        <Link
+                          to={`/contact?service=${service.slug}&price=${encodeURIComponent(row.label + ' — ' + row.price)}`}
+                          className="inline-flex items-center justify-center rounded-full bg-brand-700 px-4 py-2 text-xs font-semibold text-white transition hover:bg-brand-800 sm:text-sm"
+                        >
+                          Book this service
+                        </Link>
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>

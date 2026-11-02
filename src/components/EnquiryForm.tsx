@@ -26,7 +26,15 @@ function validate(form: FormState): string | null {
   return null;
 }
 
-export function EnquiryForm({ defaultService = '', stacked = false }: { defaultService?: string; stacked?: boolean }) {
+export function EnquiryForm({
+  defaultService = '',
+  defaultMessage = '',
+  stacked = false,
+}: {
+  defaultService?: string;
+  defaultMessage?: string;
+  stacked?: boolean;
+}) {
   const [form, setForm] = useState<FormState>({
     name: '',
     email: '',
@@ -34,7 +42,7 @@ export function EnquiryForm({ defaultService = '', stacked = false }: { defaultS
     service: defaultService,
     postcode: '',
     preferredDate: '',
-    message: '',
+    message: defaultMessage,
   });
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState<string | null>(null);

@@ -17,18 +17,7 @@ export function SiteFooter() {
         <div className="space-y-5">
           <Logo tone="light" />
           <p className="max-w-xs font-body text-sm leading-[1.6] text-white/70">{SITE.tagline}</p>
-          <div className="flex flex-wrap gap-2">
-            {SITE.socials.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                aria-label={social.label}
-                className="rounded-full border border-white/15 px-3 py-1.5 font-body text-xs font-medium text-white/80 transition hover:border-brand-400 hover:text-brand-300"
-              >
-                {social.label}
-              </a>
-            ))}
-          </div>
+
         </div>
 
         <div>
@@ -84,9 +73,17 @@ export function SiteFooter() {
                 {SITE.email}
               </a>
             </li>
-            <li className="flex items-center gap-3">
-              <MapPin className="h-4 w-4 shrink-0 text-brand-400" />
-              {SITE.coverage}
+            <li>
+              <a
+                href={SITE.addressHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 transition hover:text-white"
+                aria-label="Open our address in Google Maps"
+              >
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />
+                <span>{SITE.address}</span>
+              </a>
             </li>
             <li className="flex items-start gap-3">
               <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />

@@ -8,15 +8,9 @@ export const SITE = {
   phoneHref: 'tel:+442012345678',
   whatsappHref: 'https://wa.me/442012345678',
   hours: 'Mon to Fri, 8am to 7pm. Saturday, 9am to 2pm.',
+  address: '4th Floor, The Featherstone Building, 66 City Road, London, EC1Y 2AL',
+  addressHref: 'https://share.google/ZTfQ6SYLLbxVaiAg6',
   coverage: 'Central and East London',
-  socials: [
-    { label: 'Facebook', href: '#' },
-    { label: 'X', href: '#' },
-    { label: 'Instagram', href: '#' },
-    { label: 'TikTok', href: '#' },
-    { label: 'YouTube', href: '#' },
-    { label: 'LinkedIn', href: '#' },
-  ],
 } as const;
 
 export const NAV_LINKS = [

@@ -9,8 +9,12 @@ const CONTACT_IMAGE = 'https://images.pexels.com/photos/7359566/pexels-photo-735
 
 export function ContactPage() {
   const { search } = useLocation();
-  const requested = new URLSearchParams(search).get('service') ?? '';
-  const defaultService = findService(requested)?.name ?? '';
+  const params = new URLSearchParams(search);
+  const requested = params.get('service') ?? '';
+  const selectedPrice = params.get('price') ?? '';
+  const selectedService = findService(requested);
+  const defaultService = selectedService?.name ?? '';
+  const defaultMessage = selectedPrice ? `I would like to book: ${selectedPrice}.` : '';
 
   const channels = [
     { icon: Phone, label: 'Call us', value: SITE.phoneDisplay, href: SITE.phoneHref },
@@ -61,17 +65,23 @@ export function ContactPage() {
                 <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
                 {SITE.hours}
               </p>
-              <p className="flex items-start gap-3">
+              <a
+                href={SITE.addressHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 transition hover:text-brand-700"
+                aria-label="Open our address in Google Maps"
+              >
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
-                {SITE.coverage}
-              </p>
+                <span>{SITE.address}</span>
+              </a>
             </div>
           </div>
 
           <div className="rounded-3xl border border-line bg-white p-8 shadow-lift sm:p-10">
             <h2 className="mb-2 text-2xl text-ink">Request a booking</h2>
             <p className="mb-8 font-body text-sm leading-[1.6] text-ink/70">Fill in the details below and we will confirm your appointment.</p>
-            <EnquiryForm key={defaultService} defaultService={defaultService} />
+            <EnquiryForm key={`${defaultService}-${selectedPrice}`} defaultService={defaultService} defaultMessage={defaultMessage} />
           </div>
         </div>
       </section>

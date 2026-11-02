@@ -5,7 +5,7 @@ import { SERVICES } from '@/data/services';
 import { SITE } from '@/lib/site';
 
 const HERO_IMAGE = 'https://images.pexels.com/photos/26898875/pexels-photo-26898875.jpeg?auto=compress&cs=tinysrgb&w=1920';
-const CONSULTANT_IMAGE = 'https://images.pexels.com/photos/8730898/pexels-photo-8730898.jpeg?auto=compress&cs=tinysrgb&w=1200';
+const CONSULTANT_IMAGE = 'https://webcontent.alanboswell.com/csv-upload/AdobeStock_191169264-scaled.jpeg';
 const KEYS_IMAGE = 'https://images.pexels.com/photos/31651009/pexels-photo-31651009.jpeg?auto=compress&cs=tinysrgb&w=1920';
 
 const STATS = [
