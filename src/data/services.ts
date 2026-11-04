@@ -65,7 +65,7 @@ export const SERVICES: Service[] = [
     slug: 'eicr', category: 'electrical-safety-services', name: 'Electrical Installation Condition Report (EICR)', shortName: 'EICR',
     summary: 'A professional inspection of domestic fixed wiring and electrical installations.',
     description: 'Our registered electricians inspect the fixed electrical installation, test circuits, identify defects and provide a graded EICR report for landlords, tenants and managing agents.',
-    price: 'From £67.99', priceNote: 'Studio / 1 bedroom properties. All prices include the standard inspection.', icon: 'Zap', image: photo(32497160),
+    price: 'From £67.99', priceNote: 'Studio / 1 bedroom properties. All prices include the standard inspection.', icon: 'Zap', image: 'https://besgroup.com/app/uploads/2023/11/shutterstock_2063094095-scaled.jpg',
     includes: ['Inspection of fixed wiring and accessories', 'Consumer unit and RCD testing', 'Circuit testing and defect grading', 'EICR report issued for your records'],
     pricing: [{ title: 'Domestic EICR', note: 'Additional paid parking or the London Congestion Charge may apply.', rows: [
       { label: 'Studio / 1 bedroom', price: '£67.99' }, { label: '1–3 bedrooms', price: '£94.99' }, { label: '4 bedrooms', price: '£104.99' },
@@ -91,7 +91,7 @@ export const SERVICES: Service[] = [
     slug: 'electrical-diagnostics', category: 'electrical-safety-services', name: 'Electrical Diagnostic', shortName: 'Electrical Diagnostics',
     summary: 'Troubleshooting and fault-finding by a qualified electrician.',
     description: 'An hourly diagnostic appointment for investigating electrical faults, intermittent power issues, tripping circuits and other electrical concerns.',
-    price: '£89.99 per hour', priceNote: 'Materials are excluded. Paid parking and Congestion Charges may apply.', icon: 'Lightbulb', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTqWA-lNE5Mt_5t7oFDL0enfrHyuqaZfjChWOj1ab3jw&s=10',
+    price: '£89.99 per hour', priceNote: 'Materials are excluded. Paid parking and Congestion Charges may apply.', icon: 'Lightbulb', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA28PwZwuqpvwKbtf4QvPIhpyj5iV-km-79uESqHsQUw&s=10',
     includes: ['Electrical fault investigation', 'Testing of affected circuits', 'Diagnosis and repair advice', 'Clear explanation of recommended next work'],
     pricing: [{ title: 'Electrical diagnostic', note: 'Materials, replacement parts and any follow-on remedial work are charged separately.', rows: [{ label: 'Electrical diagnostic appointment', price: '£89.99 per hour' }] }],
     faqs: [{ q: 'Are materials included?', a: 'No. The £89.99 hourly rate is for diagnosis and labour. Materials are charged separately.' }]

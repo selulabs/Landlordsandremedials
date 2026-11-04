@@ -82,7 +82,9 @@ export function SiteFooter() {
                 aria-label="Open our address in Google Maps"
               >
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />
-                <span>{SITE.address}</span>
+                <span className="flex flex-col">
+                  {SITE.addressLines.map((line) => <span key={line}>{line}</span>)}
+                </span>
               </a>
             </li>
             <li className="flex items-start gap-3">
