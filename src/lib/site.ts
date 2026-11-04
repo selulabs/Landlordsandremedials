@@ -6,7 +6,7 @@ export const SITE = {
   email: 'info@landlordcertificatesandremedials.com',
   phoneDisplay: '07465 794860',
   phoneHref: 'tel:+44 7465 794860',
-  whatsappHref: 'https://wa.me/442012345678',
+  whatsappHref: 'https://wa.me/447465794860',
   hours: 'Mon to Fri, 8am to 7pm. Saturday, 9am to 2pm.',
   address: 'FRA Studio Flat 89, 4th Floor, The Featherstone Building, 66 City Road, London, EC1Y 2AL',
   addressLines: ['FRA Studio Flat 89, 4th Floor', 'The Featherstone Building', '66 City Road', 'London', 'EC1Y 2AL'],
