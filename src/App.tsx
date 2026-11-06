@@ -8,6 +8,7 @@ import { HomePage } from '@/pages/HomePage';
 import { LegalPage } from '@/pages/LegalPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ServiceDetailPage, ServicesPage } from '@/pages/ServicesPage';
+import { Seo } from '@/components/Seo';
 
 function renderRoute(pathname: string) {
   const path = pathname.replace(/\/+$/, '') || '/';
@@ -42,6 +43,7 @@ export default function App() {
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
+      <Seo pathname={pathname} />
       <SiteHeader />
       <main className="flex-1">{renderRoute(pathname)}</main>
       <SiteFooter />
