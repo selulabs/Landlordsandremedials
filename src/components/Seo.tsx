@@ -125,7 +125,7 @@ export function Seo({ pathname }: SeoProps) {
       telephone: SITE.phoneDisplay,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'FRA Studio Flat 89, 4th Floor, The Featherstone Building, 66 City Road',
+        streetAddress: '4th Floor, The Featherstone Building, 66 City Road',
         addressLocality: 'London',
         postalCode: 'EC1Y 2AL',
         addressCountry: 'GB',

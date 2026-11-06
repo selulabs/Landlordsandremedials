@@ -8,8 +8,8 @@ export const SITE = {
   phoneHref: 'tel:+44 7465 794860',
   whatsappHref: 'https://wa.me/447465794860',
   hours: 'Mon to Fri, 8am to 7pm. Saturday, 9am to 2pm.',
-  address: 'FRA Studio Flat 89, 4th Floor, The Featherstone Building, 66 City Road, London, EC1Y 2AL',
-  addressLines: ['FRA Studio Flat 89, 4th Floor', 'The Featherstone Building', '66 City Road', 'London', 'EC1Y 2AL'],
+  address: '4th Floor, The Featherstone Building, 66 City Road, London, EC1Y 2AL',
+  addressLines: ['4th Floor', 'The Featherstone Building', '66 City Road', 'London', 'EC1Y 2AL'],
   addressHref: 'https://share.google/ZTfQ6SYLLbxVaiAg6',
   coverage: 'Central and East London',
 } as const;
